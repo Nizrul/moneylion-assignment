@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  
+---
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+  jpa:
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+      show_sql: true
+      use_sql_comments: true
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  flyway:
+    enabled: false
